@@ -33,7 +33,7 @@ public class Move {
             if (timesPlayed == 0){
                 return 0;
             }
-            return (float) (strength / timesPlayed);
+            return (float) ((strength * strength) / timesPlayed);
         }
         
         public void incStrength(){
