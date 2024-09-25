@@ -18,10 +18,14 @@ public class TicTacToeMachine
         
         //Main game loop runs until we choose that a machine turns off, time is an estimation of number of tests
         System.out.println("Please wait, machine is currently training. This should take around " + (MachineControl.maxTestCount / 20000) + " seconds.");
+
+        //Start runtime stopwatch
+        final long startTime = System.currentTimeMillis();
+
         while (MachineControl.isMachineGame()){
         //Reset board
         gameBoard.reset();
-        
+        System.out.print("\rThe current runtime is " + ((System.currentTimeMillis() - startTime) / 1000) + " seconds with " + MachineControl.getCount() + " tests run so far");
         
         //Run a full game (repeat turns until win or draw)
         while ((!gameBoard.checkWin()) && (gameBoard.getTurn() < 9)){
